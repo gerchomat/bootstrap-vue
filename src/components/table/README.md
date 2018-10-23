@@ -859,6 +859,8 @@ scoped slot by calling the `toggleDetails` function passed to the field's scoped
 variable. You can use the scoped fields slot variable `detailsShowing` to determine
 the visibility of the `row-details` slot.
 
+In addition, you can use the `custom-row-detail-columns` property to define custom columns in the details slot.
+
 >**Note:** _If manipulating the `_showDetails` property directly on the item data (i.e.
  not via the `toggleDetails` function reference), the `_showDetails` propertly **must**
  exist in the items data for proper reactive detection of changes to it's value. Read more about

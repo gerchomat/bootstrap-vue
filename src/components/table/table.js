@@ -268,14 +268,20 @@ export default {
           tdAttrs['role'] = 'cell'
           trAttrs['role'] = 'row'
         }
-        const details = h('td', { attrs: tdAttrs }, [
-          detailsSlot({
-            item: item,
-            index: rowIndex,
-            fields: fields,
-            toggleDetails: toggleDetailsFn
-          })
+
+        let rowDetailsSlot = detailsSlot({
+          item: item,
+          index: rowIndex,
+          fields: fields,
+          toggleDetails: toggleDetailsFn
+        })
+
+        let details = h('td', { attrs: tdAttrs }, [
+          rowDetailsSlot
         ])
+
+        if (this.customRowDetailColumns) details = rowDetailsSlot
+
         rows.push(
           h(
             'tr',
@@ -409,6 +415,10 @@ export default {
       default: null
     },
     captionTop: {
+      type: Boolean,
+      default: false
+    },
+    customRowDetailColumns: {
       type: Boolean,
       default: false
     },
